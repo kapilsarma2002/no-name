@@ -1,3 +1,4 @@
+import { body, validationResult } from "express-validator"
 import { Router } from 'express'
 
 const router = Router()
@@ -7,8 +8,18 @@ router.get('/product', (req, res) => {
   res.json({message : req.secret})
 })
 router.get('/product/:id', () => {})
-router.put('/product/:id', () => {})
-router.post('/product', () => {})
+router.put('/product/:id', body('name').isString(), (req, res) => {
+  const errors = validationResult(req)
+
+  if(!errors.isEmpty()) {
+    res.status(400)
+    res.json({ errors : errors.array() })
+    return
+  }
+  res.json('Request succesful')
+  console.log(req.secret)
+})
+router.post('/product',() => {})
 router.delete('/product/:id', () => {})
 
 //update

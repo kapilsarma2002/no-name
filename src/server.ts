@@ -17,7 +17,6 @@ app.use((req,res,next)=> {
   next()
 })
 
-
 app.get('/', (req, res) => {
   console.log('hello from app')
   res.status(200)
