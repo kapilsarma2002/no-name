@@ -13,7 +13,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use((req,res,next)=> {
-  req.secret = 'virat kohli'
+  req.secret = 'kapil sarma'
   next()
 })
 
