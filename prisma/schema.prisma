@@ -11,17 +11,17 @@ datasource db {
 }
 
 model User {
-  id        String  @id @default(uuid())
+  id        String    @id @default(uuid())
   createdAt DateTime  @default(now())
-  username  String  @unique
+  username  String    @unique
   password  String
   products  Product[]
 }
 
 model Product {
-  id          String  @id @default(uuid())
+  id          String    @id @default(uuid())
   createdAt   DateTime  @default(now())
-  name        String @db.VarChar(255)
+  name        String    @db.VarChar(255)
   belongsToId String
   belongsTo User  @relation(fields: [belongsToId], references: [id])
   updates   Update[]
@@ -35,7 +35,7 @@ enum UPDATE_STATUS {
 }
 
 model Update {
-  id        String  @id @default(uuid())
+  id        String    @id @default(uuid())
   createdAt DateTime  @default(now())
   updateAt  DateTime  @updatedAt
 
@@ -51,9 +51,9 @@ model Update {
 }
 
 model UpdatePoint {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 
   name        String @db.VarChar(255)
   description String
