@@ -3,6 +3,6 @@ dotenv.config()
 
 const app = require('./server')
 
-app.listen(3000, () => {
+app.listen(config.port, () => {
   console.log('server running on https://localhost:3000')
 })
